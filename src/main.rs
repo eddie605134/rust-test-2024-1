@@ -1,13 +1,21 @@
 fn main() {
-    // let age: i32 = 20;
-    let mut age: i32 = 20;
-    // age = 3.14;
-    println!("Hello i'm {}", age);
+    let message = 'w';
+    println!("Hello,{}", message);
 
-    //  分成 i isize ; u usize
-    let age_i8: i8 = 20;
+    let cc: char = 'a';
+    let huh = '蛤';
+    let cat = '🐈';
 
-    let books: u32 = 1_000_00_0;
+    println!("{} says {}", cat, huh);
 
-    // 浮點數
+    let happy: bool = true;
+    let is_adult = false;
+
+    let cats: u8 = 0;
+
+    if cats > 0 {
+        println!("好多貓");
+    } else {
+        println!("一隻貓");
+    }
 }
