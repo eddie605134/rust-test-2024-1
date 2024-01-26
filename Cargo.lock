@@ -839,6 +839,7 @@ name = "rust-test-2024-1"
 version = "0.1.0"
 dependencies = [
  "actix-web",
+ "rand",
 ]
 
 [[package]]
