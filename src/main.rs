@@ -1,31 +1,16 @@
 fn main() {
-    // u8 -> 型別; 3 -> 長度
-    let list: [u8; 3] = [1, 2, 3];
+    // let mut
+    let mut age: u8 = 20;
 
-    println!("{:?}", list);
+    age = 24;
 
-    // let list2 = [2, "3", 4];
+    let age2;
+    age2 = 20;
 
-    let list3 = [1450, 9527, 5566];
+    println!("{}", age);
+    println!("{}", age2);
 
-    for item in list3.iter() {
-        println!("{}", item);
-    }
-
-    let list4 = [1450, 9527, 5566];
-    let [_, b, c] = list4;
-
-    // tuple
-    let answer: (char, bool) = ('蛤', false);
-    let pet = ('🐈', false);
-
-    let point = (100, 200, 300);
-    let (x, y, z) = point;
-
-    // Unit () 空tuple; 類似 void
-    // 表示「這個函數是沒有回傳值」
-
-    // fn main() -> () {
-    //     println!("Hello Rust")
-    // }
+    // const 要定義型別 要全大寫英文
+    const MY_AGE: u8 = 10;
+    println!("{}", MY_AGE);
 }
