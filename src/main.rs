@@ -1,16 +1,32 @@
 fn main() {
-    // let mut
-    let mut age: u8 = 20;
+    print_number(5566, 7788);
+    let test = add_extra(1, 2);
 
-    age = 24;
+    println!("test: {}", test);
+    test_if_statement();
+}
 
-    let age2;
-    age2 = 20;
+fn print_number(a: i32, b: i32) -> i32 {
+    return a + b;
+    // println!("{}", n);
+}
 
-    println!("{}", age);
-    println!("{}", age2);
+fn add_extra(a: i32, b: i32) -> i32 {
+    let extra = 100;
+    // a + b + extra
+    return a + b + extra;
+}
 
-    // const 要定義型別 要全大寫英文
-    const MY_AGE: u8 = 10;
-    println!("{}", MY_AGE);
+fn test_if_statement() -> () {
+    let age = 20;
+
+    let message = if age < 8 {
+        "小朋友"
+    } else if age >= 8 && age < 18 {
+        "年輕人"
+    } else {
+        "成年人"
+    };
+
+    println!("{}", message);
 }
