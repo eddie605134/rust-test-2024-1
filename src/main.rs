@@ -1,32 +1,29 @@
 fn main() {
-    print_number(5566, 7788);
-    let test = add_extra(1, 2);
+    // draw(9527);
 
-    println!("test: {}", test);
-    test_if_statement();
+    let mut test_vec = vec![1, 2, 3, 4, 5];
+    test_vec.push(6);
+
+    println!("test_vec: {:?}", test_vec);
+
+    let mut numbers = vec![1, 2, 3];
+    println!("{}, {}", numbers.len(), numbers.capacity()); // 3, 3
+
+    numbers.push(1);
+    println!("{}, {}", numbers.len(), numbers.capacity()); // 4, 6
+
+    numbers.push(1);
+    numbers.push(1);
+    println!("{}, {}", numbers.len(), numbers.capacity()); // 6, 6
+
+    numbers.push(1);
+    println!("{}, {}", numbers.len(), numbers.capacity()); // 7, 12
 }
 
-fn print_number(a: i32, b: i32) -> i32 {
-    return a + b;
-    // println!("{}", n);
+fn show_lotteries(n1: i32, n2: i32, n3: i32) {
+    println!("the lottery numbers are {} {} {}", n1, n2, n3);
 }
 
-fn add_extra(a: i32, b: i32) -> i32 {
-    let extra = 100;
-    // a + b + extra
-    return a + b + extra;
-}
-
-fn test_if_statement() -> () {
-    let age = 20;
-
-    let message = if age < 8 {
-        "小朋友"
-    } else if age >= 8 && age < 18 {
-        "年輕人"
-    } else {
-        "成年人"
-    };
-
-    println!("{}", message);
+fn draw(num: i32) {
+    show_lotteries(num + 1, num + 5, num + 10);
 }
