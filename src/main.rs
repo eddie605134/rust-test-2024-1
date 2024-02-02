@@ -1,29 +1,55 @@
+// fn main() {
+//     let mut scores = get_scores();
+//     let total_score = calc_score(&mut scores);
+//     // let total_score = calc_score(scores.clone());
+
+//     println!("{:?}", total_score);
+//     println!("{:?}", scores);
+// }
+
+// fn get_scores() -> Vec<i32> {
+//     let scores = vec![1450, 9527, 5566];
+//     return scores;
+// }
+
+// fn calc_score(scores: &mut Vec<i32>) -> i32 {
+//     scores.push(123); // 加料！
+//     let mut total = 0;
+
+//     for score in scores.iter() {
+//         total += score;
+//     }
+
+//     return total;
+// }
+
+// fn main() {
+//     let mut scores = vec![1450, 9527, 5566];
+//     let total_score = calc_score(&mut scores);
+
+//     print!("total_score: {}", total_score);
+// }
+
+// fn calc_score(scores: &mut Vec<i32>) -> i32 {
+//     scores.push(123); // 加料
+//     let mut total = 0;
+
+//     for score in scores.iter() {
+//         total += score;
+//     }
+//     return total;
+// }
+
 fn main() {
-    // draw(9527);
+    let book = String::from("為你自己學 Rust");
 
-    let mut test_vec = vec![1, 2, 3, 4, 5];
-    test_vec.push(6);
+    // let b1 = &mut book; // 如果是 &mut book 只能有一個
+    // let b2 = &mut book;
+    // let b3 = &mut book;
 
-    println!("test_vec: {:?}", test_vec);
+    let b1 = &book; // 一般的 borrow 可以有多個
+    let b2 = &book;
+    let b3 = &book;
 
-    let mut numbers = vec![1, 2, 3];
-    println!("{}, {}", numbers.len(), numbers.capacity()); // 3, 3
-
-    numbers.push(1);
-    println!("{}, {}", numbers.len(), numbers.capacity()); // 4, 6
-
-    numbers.push(1);
-    numbers.push(1);
-    println!("{}, {}", numbers.len(), numbers.capacity()); // 6, 6
-
-    numbers.push(1);
-    println!("{}, {}", numbers.len(), numbers.capacity()); // 7, 12
-}
-
-fn show_lotteries(n1: i32, n2: i32, n3: i32) {
-    println!("the lottery numbers are {} {} {}", n1, n2, n3);
-}
-
-fn draw(num: i32) {
-    show_lotteries(num + 1, num + 5, num + 10);
+    println!("{:?}, {:?}, {:?}", b1, b2, b3);
 }
