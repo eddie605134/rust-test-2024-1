@@ -3,7 +3,7 @@ struct Cat {
     age: u8,
 }
 
-fn main() {
+fn day_11() {
     let kitty = Cat {
         name: "Kitty".to_string(),
         age: 12,
