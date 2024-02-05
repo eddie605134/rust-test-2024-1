@@ -1,55 +1,27 @@
-// fn main() {
-//     let mut scores = get_scores();
-//     let total_score = calc_score(&mut scores);
-//     // let total_score = calc_score(scores.clone());
-
-//     println!("{:?}", total_score);
-//     println!("{:?}", scores);
-// }
-
-// fn get_scores() -> Vec<i32> {
-//     let scores = vec![1450, 9527, 5566];
-//     return scores;
-// }
-
-// fn calc_score(scores: &mut Vec<i32>) -> i32 {
-//     scores.push(123); // 加料！
-//     let mut total = 0;
-
-//     for score in scores.iter() {
-//         total += score;
-//     }
-
-//     return total;
-// }
-
-// fn main() {
-//     let mut scores = vec![1450, 9527, 5566];
-//     let total_score = calc_score(&mut scores);
-
-//     print!("total_score: {}", total_score);
-// }
-
-// fn calc_score(scores: &mut Vec<i32>) -> i32 {
-//     scores.push(123); // 加料
-//     let mut total = 0;
-
-//     for score in scores.iter() {
-//         total += score;
-//     }
-//     return total;
-// }
-
 fn main() {
-    let book = String::from("為你自己學 Rust");
+    let lost_numbers = vec![4, 8, 15, 16, 23, 42];
+    let first_two_nums = &lost_numbers[..2]; // 前 2 個
+    let last_three_nums = &lost_numbers[lost_numbers.len() - 3..]; // 後 3 個
 
-    // let b1 = &mut book; // 如果是 &mut book 只能有一個
-    // let b2 = &mut book;
-    // let b3 = &mut book;
+    println!("{:?}", first_two_nums); // 印出 [4, 8]
+    println!("{:?}", last_three_nums); // 印出 [16, 23, 42]
 
-    let b1 = &book; // 一般的 borrow 可以有多個
-    let b2 = &book;
-    let b3 = &book;
+    let numbers = &lost_numbers[..];
+    println!("{:?}", numbers); // 印出 [4, 8, 15, 16, 23, 42]
 
-    println!("{:?}, {:?}, {:?}", b1, b2, b3);
+    let mut lost_numbers = vec![4, 8, 15, 16, 23, 42];
+    let nums = &mut lost_numbers[0..3];
+
+    nums[0] = 5566;
+    println!("{:?}", lost_numbers); // 印出 [5566, 8, 15, 16, 23, 42]
+
+    let book = "為你自己學 Rust";
+    publish_book(book);
+
+    let book2: String = String::from("為你自己學 Rust");
+    println!("{}", book2);
+}
+
+fn publish_book(book: &str) {
+    println!("{:?} 要上市囉！", book)
 }
