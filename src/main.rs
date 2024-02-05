@@ -1,27 +1,54 @@
 fn main() {
-    let lost_numbers = vec![4, 8, 15, 16, 23, 42];
-    let first_two_nums = &lost_numbers[..2]; // 前 2 個
-    let last_three_nums = &lost_numbers[lost_numbers.len() - 3..]; // 後 3 個
+    #[allow(dead_code)]
+    struct Cat {
+        name: String,
+        age: u8,
+        is_sleeping: bool,
+    }
+    // 定義方法
+    impl Cat {
+        fn greeting(&self) {
+            println!("Hello, my name is {}", self.name);
+        }
 
-    println!("{:?}", first_two_nums); // 印出 [4, 8]
-    println!("{:?}", last_three_nums); // 印出 [16, 23, 42]
+        fn set_age(&mut self, age: u8) {
+            self.age = age;
+        }
 
-    let numbers = &lost_numbers[..];
-    println!("{:?}", numbers); // 印出 [4, 8, 15, 16, 23, 42]
+        // 沒有給 self 的方法，則不會綁再實例上
+        fn run() {
+            println!("Go Go Power Rangers");
+        }
 
-    let mut lost_numbers = vec![4, 8, 15, 16, 23, 42];
-    let nums = &mut lost_numbers[0..3];
+        // 需要帶參數的類別方法
+        fn count(list: &[u8]) -> u8 {
+            list.iter().sum()
+        }
+    }
 
-    nums[0] = 5566;
-    println!("{:?}", lost_numbers); // 印出 [5566, 8, 15, 16, 23, 42]
+    // let kitty = Cat {
+    //     name: String::from("Kitty"),
+    //     age: 12,
+    //     is_sleeping: true,
+    // };
 
-    let book = "為你自己學 Rust";
-    publish_book(book);
+    let name = String::from("Kitty");
+    let age = 12;
+    let is_sleeping = true;
 
-    let book2: String = String::from("為你自己學 Rust");
-    println!("{}", book2);
-}
+    let kitty = Cat {
+        name,
+        age,
+        is_sleeping,
+    };
 
-fn publish_book(book: &str) {
-    println!("{:?} 要上市囉！", book)
+    println!("{}", kitty.name);
+    println!("{}", kitty.age);
+    println!("{}", kitty.is_sleeping);
+
+    kitty.greeting();
+    Cat::run();
+    let list: [u8; 5] = [1, 2, 3, 4, 5];
+    let sum = Cat::count(&list);
+    println!("貓米有{}隻", sum);
 }
