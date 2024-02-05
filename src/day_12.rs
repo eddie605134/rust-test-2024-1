@@ -41,7 +41,7 @@ impl FlyableAndSay for Cat {
     }
 }
 
-fn main() {
+fn day_12() {
     let kitty = Cat {
         name: String::from("Kitty"),
         age: 18,
