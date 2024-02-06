@@ -1,4 +1,4 @@
-fn main() {
+fn day_16() {
     match bmi_calculator(170, 70.5) {
         Ok(result) => handle_ok(result),
         Err(reason) => handle_err(reason),
