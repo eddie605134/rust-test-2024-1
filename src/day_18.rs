@@ -25,4 +25,4 @@ where
 
     (bmi * 10.0).round() / 10.0
 }
-fn main() {}
+fn day_18() {}
