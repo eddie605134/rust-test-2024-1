@@ -29,7 +29,7 @@ impl CatBreed {
     }
 }
 
-fn main() {
+fn day_13() {
     let breed = CatBreed::Persian;
 
     // match breed {
