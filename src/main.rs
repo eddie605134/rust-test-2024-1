@@ -1,51 +1,46 @@
-// Option => Some, None
-// Result => Ok, Err
+use std::ops::{Add, Sub};
+
+struct Rectangle<T> {
+    width: T,
+    height: T,
+}
 
 fn main() {
-    let friends = get_friends(true);
+    let rect_a = Rectangle {
+        width: 100,
+        height: 50,
+    };
+    let rect_b = Rectangle {
+        width: 38.5,
+        height: 19.5,
+    };
 
-    match &friends {
-        None => println!("我是邊緣人我驕傲！"),
-        Some(list) => println!("我有好多朋友 {:?}", list),
-    }
+    let result = calc(1, 8, 2);
 
-    // println!("{:?}", friends.unwrap());
-
-    if let Some(friends_list) = &friends {
-        println!("有好多朋友 {:?}", friends_list);
-    } else {
-        println!("沒有朋友");
-    }
-
-    println!("{:?}", friends);
-
-    println!("{}", friends.is_some());
-    println!("{}", friends.is_none());
-
-    println!("{:?}", friends.unwrap_or(vec![]));
-
-    // Result
-    match withdraw(100) {
-        Ok(amount) => println!("提領金額 {} 元", amount),
-        Err(message) => println!("提領失敗：{}", message),
-    }
+    println!("運算結果是{}", result);
 }
 
-fn get_friends(has_money: bool) -> Option<Vec<u8>> {
-    if !has_money {
-        return None;
-    }
+// fn calc<T: Add<Output = T> + Sub<Output = T>>(a: T, b: T, c: T) -> T {
+//     a + b - c
+// }
 
-    let friends: Vec<u8> = vec![1, 2, 3, 4, 5];
-    Some(friends)
+fn calc<T>(a: T, b: T, c: T) -> T
+where
+    T: Add<Output = T> + Sub<Output = T>,
+{
+    a + b - c
 }
 
-fn withdraw(amount: u32) -> Result<u32, String> {
-    const BANK_BALANCE: u32 = 1000;
-    // 判斷帳戶餘額
-    if amount > BANK_BALANCE {
-        return Err(String::from("餘額不足"));
-    }
-
-    Ok(amount)
+trait Flyable {
+    fn fly(&self);
 }
+
+// 動態分發 &dyn Trait
+fn bungee(someone: &dyn Flyable) {
+    someone.fly();
+}
+
+// 可以用泛型實現
+// fn bungee<T: Flyable>(someone: &T) {
+//     someone.fly();
+// }
