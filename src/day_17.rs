@@ -5,7 +5,7 @@ struct Cat {
     age: u8,
 }
 
-fn main() {
+fn day_17() {
     let kitty = Cat {
         name: String::from("Kitty"),
         age: 18,
