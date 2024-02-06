@@ -1,7 +1,7 @@
 // Option => Some, None
 // Result => Ok, Err
 
-fn main() {
+fn day_14() {
     let friends = get_friends(true);
 
     match &friends {
